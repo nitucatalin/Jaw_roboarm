@@ -7,10 +7,20 @@ from rclpy.publisher import Publisher
 
 class PS4DynamixelTeleop(Node):
     def __init__(self):
+
         super().__init__('ps4_dynamixel_teleop')
+
+        # Debug startup logs
+        self.get_logger().info("Turning on the PS4 controller...")
+        self.get_logger().info("Waiting for the joy_node to start...")
+
+        # Flags
+        self.joy_node_detected = False
+        self.joy_input_detected = False
 
         #subscribe to joy node, we have to run "ros2 run joy joy_node" first, then this script
         self.subscription = self.create_subscription(Joy, '/joy', self.joy_callback, 10)
+
 
         #create publishers for each servo joint
         self.servo_ids = list(range(1, 7))
@@ -21,12 +31,28 @@ class PS4DynamixelTeleop(Node):
 
         self.selected_joint = 1
         self.current_positions = {i: 0.0 for i in self.servo_ids} #start at 0 radians
-        self.increment = 0.08 #multiply factor for movement speed
-    
+        self.increment = 0.08 #multiply factor for rotation speed
         self.last_buttons = [] #track previous button state
-        self.get_logger().info("Node initialized. Waiting for joystick input...")
+        self.axis_value = 0.0
+        self.axis_threshold = 0.5 #stick must be pushed beyond this to trigger
+
+
+    def check_joy_timeout(self):
+        if not self.connected_joy:
+            self.connected_joy = True
+            self.get_logger().info("Joystick input detected.")
 
     def joy_callback(self, msg: Joy):
+        #First time receiving any joy message
+        if not self.joy_node_detected:
+            self.joy_node_detected = True
+            self.get_logger().info("joy_node started successfully!")
+
+        # First time detecting joystick input (axis/button movement)
+        if not self.joy_input_detected and (any(msg.buttons) or any(abs(a) > 0.1 for a in msg.axes)):
+            self.joy_input_detected = True
+            self.get_logger().info("Joystick input detected.")
+
 
         if not self.last_buttons:
             self.last_buttons = msg.buttons
@@ -49,8 +75,7 @@ class PS4DynamixelTeleop(Node):
         MAX_ANGLE = math.pi 
         MIN_ANGLE = -math.pi
 
-        self.axis_value = 0.0
-        self.axis_threshold = 0.5 #stick must be pushed beyond this to trigger
+
 
         #Use the right stick vertical (axis 3 and 4) 
         axis_value = msg.axes[4] #adjust if needed
@@ -63,7 +88,7 @@ class PS4DynamixelTeleop(Node):
         elif axis_value < -self.axis_threshold and self.last_axis_value >= -self.axis_threshold:
             self.current_positions[self.selected_joint] -= self.increment
         
-        #clamp if needed comment/uncomment the line bellow
+        #clamp
         self.current_positions[self.selected_joint] = max(MIN_ANGLE, min(MAX_ANGLE, self.current_positions[self.selected_joint]))
         cmd = Float64()
         cmd.data = self.current_positions[self.selected_joint]
