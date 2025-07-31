@@ -36,12 +36,6 @@ class PS4DynamixelTeleop(Node):
         self.axis_value = 0.0
         self.axis_threshold = 0.5 #stick must be pushed beyond this to trigger
 
-
-    def check_joy_timeout(self):
-        if not self.connected_joy:
-            self.connected_joy = True
-            self.get_logger().info("Joystick input detected.")
-
     def joy_callback(self, msg: Joy):
         #First time receiving any joy message
         if not self.joy_node_detected:
@@ -74,8 +68,6 @@ class PS4DynamixelTeleop(Node):
         #angle limits
         MAX_ANGLE = math.pi 
         MIN_ANGLE = -math.pi
-
-
 
         #Use the right stick vertical (axis 3 and 4) 
         axis_value = msg.axes[4] #adjust if needed
