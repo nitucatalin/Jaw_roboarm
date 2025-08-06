@@ -20,7 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'ps4_control = giou_ps4.ps4_controll:main'
+            'ps4_control = giou_ps4.ps4_controll:main',
+            'dynamixel_bridge = giou_ps4.move_dynamixel:main'
         ],
     },
 )

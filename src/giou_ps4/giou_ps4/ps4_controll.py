@@ -66,8 +66,8 @@ class PS4DynamixelTeleop(Node):
             self.get_logger().info(f'Selected joint {self.selected_joint}')
 
         #angle limits
-        MAX_ANGLE = math.pi 
-        MIN_ANGLE = -math.pi
+        MAX_ANGLE = math.pi/3
+        MIN_ANGLE = -math.pi/2
 
         #Use the right stick vertical (axis 3 and 4) 
         axis_value = msg.axes[4] #adjust if needed
