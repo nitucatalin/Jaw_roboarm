@@ -1,7 +1,8 @@
 # Jaw PixArm
 
-6 DoF robotic arm project using **ROS 2 Jazzy Jalisco** and **Dynamixel hardware**.  
+6 DoF robotic arm project using **ROS 2 Jazzy Jalisco** and **Dynamixel hardware**. 
 This repository contains the source code, control configuration, and launch files needed to build and run the system.
+
 ![Jaw PixArm](images/jaw.png)
 ---
 
@@ -9,7 +10,7 @@ This repository contains the source code, control configuration, and launch file
 - `src/` – main source code (nodes, launch files, packages)
 - `ros2_control/` – ROS 2 control configuration for hardware/simulation
 - `dynamixel_hardware/` – drivers and hardware interfaces for Dynamixel servos
-
+- `printFiles_stl/` – 3D print files .stl
 
 ---
 
