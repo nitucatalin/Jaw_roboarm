@@ -35,6 +35,8 @@ class PS4DynamixelTeleop(Node):
         self.last_buttons = [] #track previous button state
         self.axis_value = 0.0
         self.axis_threshold = 0.5 #stick must be pushed beyond this to trigger
+        self.axis_gain = 0.02   # radians per callback per full stick deflection
+        self.last_axis_value = 0.0
 
     def joy_callback(self, msg: Joy):
         #First time receiving any joy message
@@ -65,23 +67,25 @@ class PS4DynamixelTeleop(Node):
             self.selected_joint -= 1
             self.get_logger().info(f'Selected joint {self.selected_joint}')
 
-        #angle limits
-        MAX_ANGLE = math.pi/3
-        MIN_ANGLE = -math.pi/2
+        # inside joy_callback
+        axis_value = msg.axes[4]  # right stick vertical
 
-        #Use the right stick vertical (axis 3 and 4) 
-        axis_value = msg.axes[4] #adjust if needed
-        
-        #detect positive edge (increment)
-        if axis_value > self.axis_threshold and self.last_axis_value <= self.axis_threshold:
-            self.current_positions[self.selected_joint] += self.increment
-            
-        #detect negative edge (decrement)
-        elif axis_value < -self.axis_threshold and self.last_axis_value >= -self.axis_threshold:
-            self.current_positions[self.selected_joint] -= self.increment
-        
-        #clamp
+        # Add deadzone around 0 to avoid jitter
+        if abs(axis_value) < 0.1:
+            axis_value = 0.0
+
+        # Proportional speed (scale stick deflection)
+        speed = 0.05  # radians per callback per full stick deflection
+
+        # Update position smoothly
+        self.current_positions[self.selected_joint] += axis_value * speed
+
+        # Clamp between 0 rad and pi rad (0°–180°)
+        MIN_ANGLE = 0.0
+        MAX_ANGLE = math.pi
         self.current_positions[self.selected_joint] = max(MIN_ANGLE, min(MAX_ANGLE, self.current_positions[self.selected_joint]))
+
+        # Publish
         cmd = Float64()
         cmd.data = self.current_positions[self.selected_joint]
         self.joint_publishers[self.selected_joint].publish(cmd)
