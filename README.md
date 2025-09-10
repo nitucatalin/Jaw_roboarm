@@ -7,6 +7,8 @@ This repository contains the source code, control configuration, and launch file
   <img src="images/jaw.png" alt="Jaw PixArm" width="400"/>
 </p>
 
+
+
 ---
 
 ## 📂 Repository Structure
@@ -35,6 +37,12 @@ sudo apt install -y \
   ros-jazzy-dynamixel-sdk
   ros-jazzy-joy
 ```
+---
+
+Design inspired from [Alexander Koch](https://github.com/AlexanderKoch-Koch/low_cost_robot)
+
+
+---
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details
