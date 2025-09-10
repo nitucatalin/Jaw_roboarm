@@ -39,7 +39,7 @@ sudo apt install -y \
 ```
 ---
 
-Design inspired from [Alexander Koch](https://github.com/AlexanderKoch-Koch/low_cost_robot)
+Design inspired from [Alexander Koch](https://github.com/AlexanderKoch-Koch/low_cost_robot) and fully adapted for dynamixel xl430-w250-t servomotors.
 
 
 ---
