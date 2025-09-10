@@ -31,6 +31,7 @@ sudo apt install -y \
   ros-jazzy-ros2-control \
   ros-jazzy-dynamixel-sdk
   ros-jazzy-joy
+```
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details
