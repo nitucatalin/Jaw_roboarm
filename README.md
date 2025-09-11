@@ -29,7 +29,7 @@ Install common dependencies to control with the ps4 controller:
 
 ```bash
 sudo apt update
-sudo apt upgrade
+sudo apt upgrade -y
 
 sudo apt install -y \
   python3-colcon-common-extensions \
@@ -37,6 +37,33 @@ sudo apt install -y \
   ros-jazzy-dynamixel-sdk
   ros-jazzy-joy
 ```
+
+---
+# Start the nodes and move the arm
+You will have to open three terminal windows. In the first terminal window write:
+The joy library allows our program to communicate with a PS4 or other game controllers. It maps the physical buttons, triggers, and analog sticks into software-readable events. In this case, subscribe to joy_node to get all the information needed to create a controll system for the robotic arm.
+```bash
+colcon build --packages-select giou_ps4
+source install/setup.bash
+ros2 run joy joy_node
+```
+
+In the second terminal window run the ps4_control node:
+```bash
+colcon build --packages-select giou_ps4
+source install/setup.bash
+ros2 run giou_ps4 ps4_control.py
+```
+
+In the third terminal window start the last node move_dynamixel:
+```bash
+colcon build --packages-select giou_ps4
+source install/setup.bash
+ros2 run giou_ps4 move_dynamixel.py
+```
+
+Now will see a lot of informations about the status of the servomotors and the ros2 nodes, to see if everything started in order and properly and for debug.
+
 ---
 
 Design inspired from [Alexander Koch](https://github.com/AlexanderKoch-Koch/low_cost_robot) and fully adapted for dynamixel xl430-w250-t servomotors.
