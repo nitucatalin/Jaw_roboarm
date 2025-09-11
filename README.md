@@ -40,8 +40,9 @@ sudo apt install -y \
 
 ---
 # Start the nodes and move the arm
-You will have to open three terminal windows. In the first terminal window write:
+You will have to open three terminal windows.
 The joy library allows our program to communicate with a PS4 or other game controllers. It maps the physical buttons, triggers, and analog sticks into software-readable events. In this case, subscribe to joy_node to get all the information needed to create a controll system for the robotic arm.
+In the first terminal window write:
 ```bash
 colcon build --packages-select giou_ps4
 source install/setup.bash
