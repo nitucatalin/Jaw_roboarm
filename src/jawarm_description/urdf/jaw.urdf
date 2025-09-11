@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<robot name="jawpixarm">
+    <link name = "base_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://jawarm_description/meshes/base.stl"/>
+            </geometry>
+        </visual>
+    </link>
+
+</robot>
