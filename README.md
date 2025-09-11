@@ -63,7 +63,7 @@ source install/setup.bash
 ros2 run giou_ps4 move_dynamixel.py
 ```
 
-Now will see a lot of informations about the status of the servomotors and the ros2 nodes, to see if everything started in order and properly and for debug.
+Now will see a lot of informations about the status of the servomotors and the ros2 nodes, to check if everything started in order and properly and for debug.
 
 ---
 
