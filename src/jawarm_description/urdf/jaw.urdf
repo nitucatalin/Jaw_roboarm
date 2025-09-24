@@ -1,11 +1,124 @@
-<?xml version="1.0"?>
-<robot name="jawpixarm">
-    <link name = "base_link">
-        <visual>
-            <geometry>
-                <mesh filename="package://jawarm_description/meshes/base.stl"/>
-            </geometry>
-        </visual>
-    </link>
+<robot name="jawpixarm" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+  <!-- Base -->
+  <link name="base_link">
+    <visual>
+      <origin xyz="-1.05 1.5 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://jawarm_description/meshes/base.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- Servo1 -->
+  <link name="servo1_link">
+    <visual>
+      <origin xyz="0.05 0.52 0.03" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://jawarm_description/meshes/servo.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- Phantom link at center of servo1 shaft -->
+  <link name="p1_link"/>
+
+  <!-- Base-to-Shoulder -->
+  <link name="baseToshoulder_link">
+    <visual>
+      <origin xyz="-0.2 -0.388 -0.2" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://jawarm_description/meshes/base_to_shoulder.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- Servo2 --> 
+  <link name="servo2_link"> 
+    <visual> 
+      <origin xyz="-0.17 0.109 0.3" rpy="1.5708 1.5708 0"/> 
+      <geometry> 
+        <mesh filename="package://jawarm_description/meshes/servo.STL" scale="0.01 0.01 0.01"/> 
+      </geometry> 
+    </visual> 
+  </link>
+
+  <!-- Phantom link at center of servo2 shaft -->
+  <link name="p2_link"/>
+
+  <!-- Shoulder --> 
+  <link name="shoulder_link"> 
+    <visual> 
+    <origin xyz="0.11 0.157 0.03" rpy="0 1.5708 3.1415"/> 
+      <geometry> 
+        <mesh filename="package://jawarm_description/meshes/shoulder.STL" scale="0.01 0.01 0.01"/> 
+      </geometry> 
+    </visual> 
+  </link>
+
+  <!-- Servo3 --> 
+  <link name="servo3_link"> 
+    <visual> 
+      <origin xyz="-1.139 0.431 -0.36" rpy="-1.5708 3.1415 3.1415"/> 
+      <geometry> 
+        <mesh filename="package://jawarm_description/meshes/servo.STL" scale="0.01 0.01 0.01"/> 
+      </geometry> 
+    </visual> 
+  </link>
+
+
+  <!-- ==============JOINTS=============== -->
+
+  <!-- Base -> Servo body -->
+  <joint name="servo1_base" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="servo1_link"/>
+  </joint>
+
+  <!-- Servo body -> Phantom shaft center -->
+  <joint name="p1_to_servo1" type="fixed">
+    <origin xyz="0.19 0.41 0.4" rpy="0 0 0"/>
+    <parent link="servo1_link"/>
+    <child link="p1_link"/>
+  </joint>
+
+  <!-- Phantom shaft center -> Base-to-shoulder adapter -->
+  <joint name="baseToshoulder_to_p1" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="p1_link"/>
+    <child link="baseToshoulder_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="1.0" lower="-1.57" upper="1.57"/>
+  </joint>
+
+  <!-- Servo body -> Phantom shaft center -->
+  <joint name="servo2_to_baseToshoulder" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="baseToshoulder_link"/>
+    <child link="servo2_link"/>
+  </joint>
+
+  <!-- Servo2 -> Phantom2 -->
+  <joint name="p2_to_servo2" type="fixed">
+    <origin xyz="0.19 -0.001 0.155" rpy="0 1.5708 0"/>
+    <parent link="servo2_link"/>
+    <child link="p2_link"/>
+  </joint>
+
+  <!-- Phantom shaft center -> shoulder -->
+  <joint name="shoulder_to_p2" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="p2_link"/>
+    <child link="shoulder_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="1.0" lower="-1.57" upper="1.57"/>
+  </joint>
+
+  <!-- Servo body -> Phantom shaft center -->
+  <joint name="servo3_to_shoulder" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="shoulder_link"/>
+    <child link="servo3_link"/>
+  </joint>
 </robot>
