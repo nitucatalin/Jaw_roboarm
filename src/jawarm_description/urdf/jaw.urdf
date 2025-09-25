@@ -82,7 +82,7 @@
   <!-- Servo4 --> 
   <link name="servo4_link"> 
     <visual> 
-      <origin xyz="-1.139 1.7 -0.36" rpy="-1.5708 3.1415 3.1415"/> 
+      <origin xyz="-1.38 -0.139 -0.36" rpy="1.5708 0 1.5708"/> 
       <geometry> 
         <mesh filename="package://jawarm_description/meshes/servo.STL" scale="0.01 0.01 0.01"/> 
       </geometry> 
@@ -95,7 +95,7 @@
   <!-- Wrist --> 
   <link name="wrist_link"> 
     <visual> 
-    <origin xyz="-0.287 -0.139 0.03" rpy="3.1415 1.5708 3.1415"/> 
+    <origin xyz="0.1429 -0.2877 0.03" rpy="1.5708 1.5708 3.1415"/> 
       <geometry> 
         <mesh filename="package://jawarm_description/meshes/wrist.STL" scale="0.01 0.01 0.01"/> 
       </geometry> 
@@ -176,13 +176,13 @@
   <!-- Servo4 -->
   <joint name="servo4_to_elbow" type="fixed">
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <parent link="shoulder_link"/>
+    <parent link="elbow_link"/>
     <child link="servo4_link"/>
   </joint>
 
   <!-- Servo4 -> Phantom4 -->
   <joint name="p4_to_servo4" type="fixed">
-    <origin xyz="-1.0 1.589 0" rpy="0 0 0"/>
+    <origin xyz="-1.268 0.005 0" rpy="0 0 0"/>
     <parent link="servo4_link"/>
     <child link="p4_link"/>
   </joint>
