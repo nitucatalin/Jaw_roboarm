@@ -66,24 +66,59 @@
     </visual> 
   </link>
 
+  <!-- Phantom link at center of servo3 shaft -->
+  <link name="p3_link"/>
+
+  <!-- Elbow --> 
+  <link name="elbow_link"> 
+    <visual> 
+    <origin xyz="0.113 0.148 0.03" rpy="0 1.5708 3.1415"/> 
+      <geometry> 
+        <mesh filename="package://jawarm_description/meshes/elbow.STL" scale="0.01 0.01 0.01"/> 
+      </geometry> 
+    </visual> 
+  </link>
+
+  <!-- Servo4 --> 
+  <link name="servo4_link"> 
+    <visual> 
+      <origin xyz="-1.139 1.7 -0.36" rpy="-1.5708 3.1415 3.1415"/> 
+      <geometry> 
+        <mesh filename="package://jawarm_description/meshes/servo.STL" scale="0.01 0.01 0.01"/> 
+      </geometry> 
+    </visual> 
+  </link>
+
+  <!-- Phantom link at center of servo4 shaft -->
+  <link name="p4_link"/>
+
+  <!-- Wrist --> 
+  <link name="wrist_link"> 
+    <visual> 
+    <origin xyz="-0.287 -0.139 0.03" rpy="3.1415 1.5708 3.1415"/> 
+      <geometry> 
+        <mesh filename="package://jawarm_description/meshes/wrist.STL" scale="0.01 0.01 0.01"/> 
+      </geometry> 
+    </visual> 
+  </link>
 
   <!-- ==============JOINTS=============== -->
 
-  <!-- Base -> Servo body -->
+  <!-- Base -> Servo1 -->
   <joint name="servo1_base" type="fixed">
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="servo1_link"/>
   </joint>
 
-  <!-- Servo body -> Phantom shaft center -->
+  <!-- Phantom1 link shaft center -->
   <joint name="p1_to_servo1" type="fixed">
     <origin xyz="0.19 0.41 0.4" rpy="0 0 0"/>
     <parent link="servo1_link"/>
     <child link="p1_link"/>
   </joint>
 
-  <!-- Phantom shaft center -> Base-to-shoulder adapter -->
+  <!-- Phantom1 shaft center -> Base-to-shoulder adapter -->
   <joint name="baseToshoulder_to_p1" type="revolute">
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <parent link="p1_link"/>
@@ -92,7 +127,7 @@
     <limit effort="10" velocity="1.0" lower="-1.57" upper="1.57"/>
   </joint>
 
-  <!-- Servo body -> Phantom shaft center -->
+  <!-- Servo2 -->
   <joint name="servo2_to_baseToshoulder" type="fixed">
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <parent link="baseToshoulder_link"/>
@@ -115,10 +150,49 @@
     <limit effort="10" velocity="1.0" lower="-1.57" upper="1.57"/>
   </joint>
 
-  <!-- Servo body -> Phantom shaft center -->
+  <!-- Servo3 -->
   <joint name="servo3_to_shoulder" type="fixed">
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <parent link="shoulder_link"/>
     <child link="servo3_link"/>
+  </joint>
+
+  <!-- Servo3 -> Phantom3 -->
+  <joint name="p3_to_servo3" type="fixed">
+    <origin xyz="-1.0 0.32 0" rpy="0 0 0"/>
+    <parent link="servo3_link"/>
+    <child link="p3_link"/>
+  </joint>
+
+  <!-- Phantom shaft center -> elbow -->
+  <joint name="elbow_to_p3" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 -1.5708"/>
+    <parent link="p3_link"/>
+    <child link="elbow_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="1.0" lower="-1.57" upper="1.57"/>
+  </joint>
+
+  <!-- Servo4 -->
+  <joint name="servo4_to_elbow" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="shoulder_link"/>
+    <child link="servo4_link"/>
+  </joint>
+
+  <!-- Servo4 -> Phantom4 -->
+  <joint name="p4_to_servo4" type="fixed">
+    <origin xyz="-1.0 1.589 0" rpy="0 0 0"/>
+    <parent link="servo4_link"/>
+    <child link="p4_link"/>
+  </joint>
+
+  <!-- Phantom shaft center -> wrist -->
+  <joint name="wrist_to_p4" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 -1.5708"/>
+    <parent link="p4_link"/>
+    <child link="wrist_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="1.0" lower="-1.57" upper="1.57"/>
   </joint>
 </robot>
