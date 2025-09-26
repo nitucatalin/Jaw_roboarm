@@ -1,5 +1,7 @@
 <robot name="jawpixarm" xmlns:xacro="http://www.ros.org/wiki/xacro">
-
+ 
+ 
+ <!-- ============== MESHES =============== -->
   <!-- Base -->
   <link name="base_link">
     <visual>
@@ -102,7 +104,32 @@
     </visual> 
   </link>
 
-  <!-- ==============JOINTS=============== -->
+  <!-- Servo5 --> 
+  <link name="servo5_link"> 
+    <visual> 
+      <origin xyz="0 -0.01 0" rpy="3.1415 0 0"/> 
+      <geometry> 
+        <mesh filename="package://jawarm_description/meshes/servo.STL" scale="0.01 0.01 0.01"/> 
+      </geometry> 
+    </visual> 
+  </link>
+
+  <!-- Phantom link at center of servo4 shaft -->
+  <link name="p5_link"/>
+
+  <!-- static grip --> 
+  <link name="staticgrip_link"> 
+    <visual> 
+    <origin xyz="0.2 0.335 0" rpy="1.5708 0 4.7123"/> 
+      <geometry> 
+        <mesh filename="package://jawarm_description/meshes/static_gripper.STL" scale="0.01 0.01 0.01"/> 
+      </geometry> 
+    </visual> 
+  </link>
+
+
+
+  <!-- ============== JOINTS =============== -->
 
   <!-- Base -> Servo1 -->
   <joint name="servo1_base" type="fixed">
@@ -192,6 +219,29 @@
     <origin xyz="0 0 0" rpy="0 0 -1.5708"/>
     <parent link="p4_link"/>
     <child link="wrist_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="1.0" lower="-1.57" upper="1.57"/>
+  </joint>
+
+  <!-- Servo5 -->
+  <joint name="servo5_to_wrist" type="fixed">
+    <origin xyz="-0.141 -0.28 0" rpy="0 0 0"/>
+    <parent link="wrist_link"/>
+    <child link="servo5_link"/>
+  </joint>
+
+  <!-- Servo5 -> Phantom5 -->
+  <joint name="p5_to_servo5" type="fixed">
+    <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+    <parent link="servo5_link"/>
+    <child link="p5_link"/>
+  </joint>
+
+  <!-- Phantom shaft center -> wrist -->
+  <joint name="staticgrip_to_p5" type="revolute">
+    <origin xyz="0.115 -0.38 0.139" rpy="1.5708 1.5708 0"/>
+    <parent link="p5_link"/>
+    <child link="staticgrip_link"/>
     <axis xyz="0 0 1"/>
     <limit effort="10" velocity="1.0" lower="-1.57" upper="1.57"/>
   </joint>
