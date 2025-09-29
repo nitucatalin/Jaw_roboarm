@@ -127,6 +127,29 @@
     </visual> 
   </link>
 
+  <!-- Servo6 --> 
+  <link name="servo6_link"> 
+    <visual> 
+      <origin xyz="-0.0325 0.05 0.03" rpy="1.5708 -1.5708 3.1415"/> 
+      <geometry> 
+        <mesh filename="package://jawarm_description/meshes/servo.STL" scale="0.01 0.01 0.01"/> 
+      </geometry> 
+    </visual> 
+  </link>
+
+  <!-- Phantom link at center of servo4 shaft -->
+  <link name="p6_link"/>
+
+  <!--  mobile grip --> 
+  <link name="mobilegrip_link"> 
+    <visual> 
+    <origin xyz="0.11 -0.4 -0.133" rpy="1.5708 0 3.1415"/> 
+      <geometry> 
+        <mesh filename="package://jawarm_description/meshes/mobile_gripper.STL" scale="0.01 0.01 0.01"/> 
+      </geometry> 
+    </visual> 
+  </link>
+
 
 
   <!-- ============== JOINTS =============== -->
@@ -245,4 +268,28 @@
     <axis xyz="0 0 1"/>
     <limit effort="10" velocity="1.0" lower="-1.57" upper="1.57"/>
   </joint>
+
+  <!-- Servo6 -->
+  <joint name="servo6_to_staticgrip" type="fixed">
+    <origin xyz="-0.141 -0.28 0" rpy="0 0 0"/>
+    <parent link="staticgrip_link"/>
+    <child link="servo6_link"/>
+  </joint>
+
+  <!-- Servo6 -> Phantom6 -->
+  <joint name="p6_to_servo6" type="fixed">
+    <origin xyz="0 0 0" rpy="3.1415 0 0"/>
+    <parent link="servo6_link"/>
+    <child link="p6_link"/>
+  </joint>
+
+  <!-- Phantom shaft center -> wrist -->
+  <joint name="mobilegrip_to_p6" type="revolute">
+    <origin xyz="0.335 -0.165 -0.17" rpy="3.1415 6.2831 1.5708"/>
+    <parent link="p6_link"/>
+    <child link="mobilegrip_link"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="10" velocity="1.0" lower="-1.57" upper="1.57"/>
+  </joint>
+
 </robot>
