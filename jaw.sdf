@@ -1,0 +1,76 @@
+<sdf version='1.12'>
+  <model name='jawpixarm'>
+    <frame name='p1_to_servo1' attached_to='servo1_link'>
+      <pose>0.19 0.40999999999999998 0.40000000000000002 0 0 0</pose>
+    </frame>
+    <frame name='p1_link' attached_to='p1_to_servo1'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='p2_to_servo2' attached_to='servo2_link'>
+      <pose>0.19 -0.001 0.155 3.1415926535897931 1.5707926536359933 3.1415926535897931</pose>
+    </frame>
+    <frame name='p2_link' attached_to='p2_to_servo2'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='p3_to_servo3' attached_to='servo3_link'>
+      <pose>-1 0.32000000000000001 0 0 0 0</pose>
+    </frame>
+    <frame name='p3_link' attached_to='p3_to_servo3'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='p4_to_servo4' attached_to='servo4_link'>
+      <pose>-1.268 0.0050000000000000001 0 0 0 0</pose>
+    </frame>
+    <frame name='p4_link' attached_to='p4_to_servo4'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='p5_to_servo5' attached_to='servo5_link'>
+      <pose>0 0 0 3.1415926535897931 1.5707926536359933 3.1415926535897931</pose>
+    </frame>
+    <frame name='p5_link' attached_to='p5_to_servo5'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='p6_to_servo6' attached_to='servo6_link'>
+      <pose>0 0 0 3.1415000000000002 0 0</pose>
+    </frame>
+    <frame name='p6_link' attached_to='p6_to_servo6'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='servo6_to_staticgrip' attached_to='staticgrip_link'>
+      <pose>-0.14099999999999999 -0.28000000000000003 0 0 0 0</pose>
+    </frame>
+    <frame name='servo6_link' attached_to='servo6_to_staticgrip'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='servo5_to_wrist' attached_to='wrist_link'>
+      <pose>-0.14099999999999999 -0.28000000000000003 0 0 0 0</pose>
+    </frame>
+    <frame name='servo5_link' attached_to='servo5_to_wrist'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='servo4_to_elbow' attached_to='elbow_link'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='servo4_link' attached_to='servo4_to_elbow'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='servo3_to_shoulder' attached_to='shoulder_link'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='servo3_link' attached_to='servo3_to_shoulder'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='servo2_to_baseToshoulder' attached_to='baseToshoulder_link'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='servo2_link' attached_to='servo2_to_baseToshoulder'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='servo1_base' attached_to='base_link'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='servo1_link' attached_to='servo1_base'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+  </model>
+</sdf>

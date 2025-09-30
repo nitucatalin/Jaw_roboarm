@@ -143,7 +143,7 @@
   <!--  mobile grip --> 
   <link name="mobilegrip_link"> 
     <visual> 
-    <origin xyz="0.11 -0.4 -0.133" rpy="1.5708 0 3.1415"/> 
+    <origin xyz="0.1125 0.13 -0.41" rpy="0 0 3.1415"/> 
       <geometry> 
         <mesh filename="package://jawarm_description/meshes/mobile_gripper.STL" scale="0.01 0.01 0.01"/> 
       </geometry> 
@@ -285,7 +285,7 @@
 
   <!-- Phantom shaft center -> wrist -->
   <joint name="mobilegrip_to_p6" type="revolute">
-    <origin xyz="0.335 -0.165 -0.17" rpy="3.1415 6.2831 1.5708"/>
+    <origin xyz="0.335 -0.165 -0.17" rpy="1.5708 6.2831 1.5708"/>
     <parent link="p6_link"/>
     <child link="mobilegrip_link"/>
     <axis xyz="0 1 0"/>
