@@ -10,6 +10,18 @@
         <mesh filename="package://jawarm_description/meshes/base.STL" scale="0.01 0.01 0.01"/>
       </geometry>
     </visual>
+    <inertial>
+      <origin xyz="-1.05 1.5 0" rpy="0 0 0"/>
+      <mass value="0.02"/>
+      <inertia ixx="1.04e-04" iyy="1.04e-04" izz="2.08e-04"
+               ixy="0.0" ixz="0.0" iyz="0.0"/>
+    </inertial>
+    <collision>
+     <origin xyz="-1.05 1.5 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://jawarm_description/meshes/base.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
   </link>
 
   <!-- Servo1 -->
@@ -20,6 +32,18 @@
         <mesh filename="package://jawarm_description/meshes/servo.STL" scale="0.01 0.01 0.01"/>
       </geometry>
     </visual>
+    <inertial>
+      <origin xyz="0.05 0.52 0.03" rpy="1.5708 0 0"/>
+      <mass value="0.0572"/>
+      <inertia ixx="6.2e-05" iyy="7.8e-05" izz="1.0e-04"
+               ixy="0.0" ixz="0.0" iyz="0.0"/>
+    </inertial>
+    <collision>
+      <origin xyz="0.05 0.52 0.03" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://jawarm_description/meshes/servo.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
   </link>
 
   <!-- Phantom link at center of servo1 shaft -->
@@ -33,6 +57,18 @@
         <mesh filename="package://jawarm_description/meshes/base_to_shoulder.STL" scale="0.01 0.01 0.01"/>
       </geometry>
     </visual>
+    <inertial>
+      <origin xyz="0.19 0.41 0.4" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1.0e-05" iyy="1.3e-05" izz="2.0e-05"
+               ixy="0.0" ixz="0.0" iyz="0.0"/>
+    </inertial>
+    <collision>
+      <origin xyz="-0.2 -0.388 -0.2" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://jawarm_description/meshes/base_to_shoulder.STL" scale="0.01 0.01 0.01"/>
+      </geometry>    
+    </collision>
   </link>
 
   <!-- Servo2 --> 
@@ -42,7 +78,19 @@
       <geometry> 
         <mesh filename="package://jawarm_description/meshes/servo.STL" scale="0.01 0.01 0.01"/> 
       </geometry> 
-    </visual> 
+    </visual>
+    <inertial>
+      <origin xyz="0.05 0.52 0.03" rpy="1.5708 0 0"/>
+      <mass value="0.0572"/>
+      <inertia ixx="6.2e-05" iyy="7.8e-05" izz="1.0e-04"
+               ixy="0.0" ixz="0.0" iyz="0.0"/>
+    </inertial>
+    <collision>
+      <origin xyz="-0.17 0.109 0.3" rpy="1.5708 1.5708 0"/> 
+      <geometry> 
+        <mesh filename="package://jawarm_description/meshes/servo.STL" scale="0.01 0.01 0.01"/> 
+      </geometry>
+    </collision> 
   </link>
 
   <!-- Phantom link at center of servo2 shaft -->
@@ -55,7 +103,19 @@
       <geometry> 
         <mesh filename="package://jawarm_description/meshes/shoulder.STL" scale="0.01 0.01 0.01"/> 
       </geometry> 
-    </visual> 
+    </visual>
+    <inertial>
+      <origin xyz="0.19 -0.001 0.155" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1.0e-05" iyy="1.3e-05" izz="2.0e-05"
+               ixy="0.0" ixz="0.0" iyz="0.0"/>
+    </inertial> 
+    <collision>
+      <origin xyz="0.11 0.157 0.03" rpy="0 1.5708 3.1415"/> 
+      <geometry> 
+        <mesh filename="package://jawarm_description/meshes/shoulder.STL" scale="0.01 0.01 0.01"/> 
+      </geometry>
+    </collision>
   </link>
 
   <!-- Servo3 --> 
@@ -66,6 +126,18 @@
         <mesh filename="package://jawarm_description/meshes/servo.STL" scale="0.01 0.01 0.01"/> 
       </geometry> 
     </visual> 
+    <inertial>
+      <origin xyz="0.05 0.52 0.03" rpy="1.5708 0 0"/>
+      <mass value="0.0572"/>
+      <inertia ixx="6.2e-05" iyy="7.8e-05" izz="1.0e-04"
+               ixy="0.0" ixz="0.0" iyz="0.0"/>
+    </inertial>
+    <collision>
+      <origin xyz="-1.139 0.431 -0.36" rpy="-1.5708 3.1415 3.1415"/> 
+      <geometry> 
+        <mesh filename="package://jawarm_description/meshes/servo.STL" scale="0.01 0.01 0.01"/> 
+      </geometry> 
+    </collision>
   </link>
 
   <!-- Phantom link at center of servo3 shaft -->
@@ -78,7 +150,19 @@
       <geometry> 
         <mesh filename="package://jawarm_description/meshes/elbow.STL" scale="0.01 0.01 0.01"/> 
       </geometry> 
-    </visual> 
+    </visual>
+    <inertial>
+      <origin xyz="-1.0 0.32 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1.0e-05" iyy="1.3e-05" izz="2.0e-05"
+               ixy="0.0" ixz="0.0" iyz="0.0"/>
+    </inertial> 
+    <collision>
+      <origin xyz="0.113 0.148 0.03" rpy="0 1.5708 3.1415"/> 
+      <geometry> 
+        <mesh filename="package://jawarm_description/meshes/elbow.STL" scale="0.01 0.01 0.01"/> 
+      </geometry> 
+    </collision>
   </link>
 
   <!-- Servo4 --> 
@@ -88,7 +172,19 @@
       <geometry> 
         <mesh filename="package://jawarm_description/meshes/servo.STL" scale="0.01 0.01 0.01"/> 
       </geometry> 
-    </visual> 
+    </visual>
+    <inertial>
+      <origin xyz="0.05 0.52 0.03" rpy="1.5708 0 0"/>
+      <mass value="0.0572"/>
+      <inertia ixx="6.2e-05" iyy="7.8e-05" izz="1.0e-04"
+               ixy="0.0" ixz="0.0" iyz="0.0"/>
+    </inertial> 
+    <collision>
+      <origin xyz="-1.38 -0.139 -0.36" rpy="1.5708 0 1.5708"/> 
+      <geometry> 
+        <mesh filename="package://jawarm_description/meshes/servo.STL" scale="0.01 0.01 0.01"/> 
+      </geometry>
+    </collision>
   </link>
 
   <!-- Phantom link at center of servo4 shaft -->
@@ -101,7 +197,19 @@
       <geometry> 
         <mesh filename="package://jawarm_description/meshes/wrist.STL" scale="0.01 0.01 0.01"/> 
       </geometry> 
-    </visual> 
+    </visual>
+    <inertial>
+      <origin xyz="-1.268 0.005 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1.0e-05" iyy="1.3e-05" izz="2.0e-05"
+               ixy="0.0" ixz="0.0" iyz="0.0"/>
+    </inertial>
+    <collision>
+      <origin xyz="0.1429 -0.2877 0.03" rpy="1.5708 1.5708 3.1415"/> 
+      <geometry> 
+        <mesh filename="package://jawarm_description/meshes/wrist.STL" scale="0.01 0.01 0.01"/> 
+      </geometry>
+    </collision>
   </link>
 
   <!-- Servo5 --> 
@@ -111,7 +219,19 @@
       <geometry> 
         <mesh filename="package://jawarm_description/meshes/servo.STL" scale="0.01 0.01 0.01"/> 
       </geometry> 
-    </visual> 
+    </visual>
+    <inertial>
+      <origin xyz="0.05 0.52 0.03" rpy="1.5708 0 0"/>
+      <mass value="0.0572"/>
+      <inertia ixx="6.2e-05" iyy="7.8e-05" izz="1.0e-04"
+               ixy="0.0" ixz="0.0" iyz="0.0"/>
+    </inertial> 
+    <collision>
+      <origin xyz="0 -0.01 0" rpy="3.1415 0 0"/> 
+      <geometry> 
+        <mesh filename="package://jawarm_description/meshes/servo.STL" scale="0.01 0.01 0.01"/> 
+      </geometry> 
+    </collision>
   </link>
 
   <!-- Phantom link at center of servo4 shaft -->
@@ -124,7 +244,19 @@
       <geometry> 
         <mesh filename="package://jawarm_description/meshes/static_gripper.STL" scale="0.01 0.01 0.01"/> 
       </geometry> 
-    </visual> 
+    </visual>
+    <inertial>
+      <origin xyz="0.115 -0.38 0.139" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1.0e-05" iyy="1.3e-05" izz="2.0e-05"
+               ixy="0.0" ixz="0.0" iyz="0.0"/>
+    </inertial> 
+    <collision>
+      <origin xyz="0.2 0.335 0" rpy="1.5708 0 4.7123"/> 
+      <geometry> 
+        <mesh filename="package://jawarm_description/meshes/static_gripper.STL" scale="0.01 0.01 0.01"/> 
+      </geometry>
+    </collision>
   </link>
 
   <!-- Servo6 --> 
@@ -134,7 +266,19 @@
       <geometry> 
         <mesh filename="package://jawarm_description/meshes/servo.STL" scale="0.01 0.01 0.01"/> 
       </geometry> 
-    </visual> 
+    </visual>
+    <inertial>
+      <origin xyz="0.05 0.52 0.03" rpy="1.5708 0 0"/>
+      <mass value="0.0572"/>
+      <inertia ixx="6.2e-05" iyy="7.8e-05" izz="1.0e-04"
+               ixy="0.0" ixz="0.0" iyz="0.0"/>
+    </inertial> 
+    <collision>
+      <origin xyz="-0.0325 0.05 0.03" rpy="1.5708 -1.5708 3.1415"/> 
+      <geometry> 
+        <mesh filename="package://jawarm_description/meshes/servo.STL" scale="0.01 0.01 0.01"/> 
+      </geometry>
+    </collision>
   </link>
 
   <!-- Phantom link at center of servo4 shaft -->
@@ -143,11 +287,23 @@
   <!--  mobile grip --> 
   <link name="mobilegrip_link"> 
     <visual> 
-    <origin xyz="0.1125 0.13 -0.41" rpy="0 0 3.1415"/> 
+    <origin xyz="0.1125 0.13 -0.415" rpy="0 0 3.1415"/> 
       <geometry> 
         <mesh filename="package://jawarm_description/meshes/mobile_gripper.STL" scale="0.01 0.01 0.01"/> 
       </geometry> 
-    </visual> 
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1.0e-05" iyy="1.3e-05" izz="2.0e-05"
+               ixy="0.0" ixz="0.0" iyz="0.0"/>
+    </inertial> 
+    <collision>
+      <origin xyz="0.1125 0.13 -0.415" rpy="0 0 3.1415"/> 
+      <geometry> 
+        <mesh filename="package://jawarm_description/meshes/mobile_gripper.STL" scale="0.01 0.01 0.01"/> 
+      </geometry>
+    </collision>
   </link>
 
 
@@ -288,7 +444,7 @@
     <origin xyz="0.335 -0.165 -0.17" rpy="1.5708 6.2831 1.5708"/>
     <parent link="p6_link"/>
     <child link="mobilegrip_link"/>
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 0 1"/>
     <limit effort="10" velocity="1.0" lower="-1.57" upper="1.57"/>
   </joint>
 
