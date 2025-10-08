@@ -1,14 +1,51 @@
 <?xml version="1.0" ?>
 <sdf version="1.9">
   <world name="arm_world">
-    <include>
-      <uri>model://ground_plane</uri>
-    </include>
-    <include>
-      <uri>model://sun</uri>
-    </include>
+
+    <light type="directional" name="sun_light">
+        <cast_shadows>true</cast_shadows>
+        <pose>0 0 10 0 -0 0</pose>
+        <diffuse>0.8 0.8 0.8 1</diffuse>
+        <specular>0.1 0.1 0.1 1</specular>
+        <attenuation>
+            <range>1000</range>
+            <constant>0.9</constant>
+            <linear>0.01</linear>
+            <quadratic>0.001</quadratic>
+        </attenuation>
+        <direction>-0.5 0.1 -0.9</direction>
+    </light>
+    
+    <model name="ground_plane_model">
+        <static>true</static>
+        <link name="link">
+            <collision name="collision">
+                <geometry>
+                    <plane>
+                        <normal>0 0 1</normal>
+                        <size>100 100</size>
+                    </plane>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <plane>
+                        <normal>0 0 1</normal>
+                        <size>100 100</size>
+                    </plane>
+                </geometry>
+                <material>
+                    <ambient>0.8 0.8 0.8 1</ambient>
+                    <diffuse>0.8 0.8 0.8 1</diffuse>
+                    <specular>0.0 0.0 0.0 1</specular>
+                </material>
+            </visual>
+        </link>
+    </model>
+    
     <include>
       <uri>model://jawarm_description/jaw.sdf</uri>
     </include>
+    
   </world>
 </sdf>

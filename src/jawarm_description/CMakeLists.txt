@@ -28,6 +28,7 @@ install(
     urdf 
     meshes 
     launch
+    gazebo
 
   DESTINATION 
     share/${PROJECT_NAME}/
