@@ -1,0 +1,574 @@
+<sdf version='1.11'>
+  <model name='jawpixarm'>
+    <link name='base_link'>
+      <inertial>
+        <pose>-0.2349740932642487 0.77388601036269433 0.022227979274611401 0 0 0</pose>
+        <mass>0.077200000000000005</mass>
+        <inertia>
+          <ixx>0.01441117098445596</ixx>
+          <ixy>0.015974507772020731</ixy>
+          <ixz>-0.00048901554404145076</ixz>
+          <iyy>0.018147906735751</iyy>
+          <iyz>0.00043566847459289569</iyz>
+          <izz>0.032448404145078019</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_collision'>
+        <pose>-1.05 1.5 0 1.5708 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/base.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__servo1_link_collision_1'>
+        <pose>0.050000000000000003 0.52000000000000002 0.029999999999999999 1.5708 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/servo.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose>-1.05 1.5 0 1.5708 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/base.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.25 0.25 1 1</diffuse>
+          <ambient>0.25 0.25 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__servo1_link_visual_1'>
+        <pose>0.050000000000000003 0.52000000000000002 0.029999999999999999 1.5708 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/servo.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.25 0.25 1 1</diffuse>
+          <ambient>0.25 0.25 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='baseToshoulder_to_p1' type='revolute'>
+      <pose relative_to='base_link'>0.19 0.40999999999999998 0.40000000000000002 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>baseToshoulder_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.5700000000000001</lower>
+          <upper>1.5700000000000001</upper>
+          <effort>10</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='baseToshoulder_link'>
+      <pose relative_to='baseToshoulder_to_p1'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.070833333333333345 0.50363095238095235 0.085059523809523807 0 0 0</pose>
+        <mass>0.067199999999999996</mass>
+        <inertia>
+          <ixx>0.001340273809523812</ixx>
+          <ixy>0.00013108333333333331</ixy>
+          <ixz>-0.00044091666666666682</ixz>
+          <iyy>0.0014451130952377979</iyy>
+          <iyz>0.00034643460462003553</iyz>
+          <izz>0.00036782738095268719</izz>
+        </inertia>
+      </inertial>
+      <collision name='baseToshoulder_link_collision'>
+        <pose>-0.20000000000000001 -0.38800000000000001 -0.20000000000000001 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/base_to_shoulder.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='baseToshoulder_link_fixed_joint_lump__servo2_link_collision_1'>
+        <pose>-0.17000000000000001 0.109 0.29999999999999999 1.570796326794897 1.5707963267948966 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/servo.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='baseToshoulder_link_visual'>
+        <pose>-0.20000000000000001 -0.38800000000000001 -0.20000000000000001 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/base_to_shoulder.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.25 0.25 1 1</diffuse>
+          <ambient>0.25 0.25 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='baseToshoulder_link_fixed_joint_lump__servo2_link_visual_1'>
+        <pose>-0.17000000000000001 0.109 0.29999999999999999 1.570796326794897 1.5707963267948966 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/servo.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.25 0.25 1 1</diffuse>
+          <ambient>0.25 0.25 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='shoulder_to_p2' type='revolute'>
+      <pose relative_to='baseToshoulder_link'>0.19 -0.001 0.155 3.1415926535897931 1.5707926536359933 3.1415926535897931</pose>
+      <parent>baseToshoulder_link</parent>
+      <child>shoulder_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.5700000000000001</lower>
+          <upper>1.5700000000000001</upper>
+          <effort>10</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='shoulder_link'>
+      <pose relative_to='shoulder_to_p2'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.070833333333333345 0.44247023809523822 0.048601190476190471 0 0 0</pose>
+        <mass>0.067199999999999996</mass>
+        <inertia>
+          <ixx>0.0025154784523809481</ixx>
+          <ixy>0.00062085833333333377</ixy>
+          <ixz>-0.0001489583333333333</ixz>
+          <iyy>0.00041283184523779832</iyy>
+          <iyz>0.0005543378784295599</iyz>
+          <izz>0.0025753132738098208</izz>
+        </inertia>
+      </inertial>
+      <collision name='shoulder_link_collision'>
+        <pose>0.11 0.157 0.029999999999999999 -3.1415000000000002 1.5707963267948966 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/shoulder.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='shoulder_link_fixed_joint_lump__servo3_link_collision_1'>
+        <pose>-1.139 0.43099999999999999 -0.35999999999999999 1.5707926535897929 9.2653589793057284e-05 -9.265358979305727e-05</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/servo.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='shoulder_link_visual'>
+        <pose>0.11 0.157 0.029999999999999999 -3.1415000000000002 1.5707963267948966 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/shoulder.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.25 0.25 1 1</diffuse>
+          <ambient>0.25 0.25 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='shoulder_link_fixed_joint_lump__servo3_link_visual_1'>
+        <pose>-1.139 0.43099999999999999 -0.35999999999999999 1.5707926535897929 9.2653589793057284e-05 -9.265358979305727e-05</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/servo.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.25 0.25 1 1</diffuse>
+          <ambient>0.25 0.25 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='elbow_to_p3' type='revolute'>
+      <pose relative_to='shoulder_link'>-1 0.32000000000000001 0 0 0 -1.5708</pose>
+      <parent>shoulder_link</parent>
+      <child>elbow_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.5700000000000001</lower>
+          <upper>1.5700000000000001</upper>
+          <effort>10</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='elbow_link'>
+      <pose relative_to='elbow_to_p3'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.10625 0.49023809523809531 0.02553571428571428 0 0 0</pose>
+        <mass>0.067199999999999996</mass>
+        <inertia>
+          <ixx>0.00042013690476190579</ixx>
+          <ixy>-0.0017875</ixy>
+          <ixz>-0.00026812500000000003</ixz>
+          <iyy>0.0095050357142854175</iyy>
+          <iyz>-5.107134776091639e-05</iyz>
+          <izz>0.0098228511904764858</izz>
+        </inertia>
+      </inertial>
+      <collision name='elbow_link_collision'>
+        <pose>0.113 0.14799999999999999 0.029999999999999999 -3.1415000000000002 1.5707963267948966 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/elbow.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='elbow_link_fixed_joint_lump__servo4_link_collision_1'>
+        <pose>-1.3799999999999999 -0.13900000000000001 -0.35999999999999999 1.5708 -5.5511151231257827e-17 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/servo.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='elbow_link_visual'>
+        <pose>0.113 0.14799999999999999 0.029999999999999999 -3.1415000000000002 1.5707963267948966 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/elbow.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.25 0.25 1 1</diffuse>
+          <ambient>0.25 0.25 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='elbow_link_fixed_joint_lump__servo4_link_visual_1'>
+        <pose>-1.3799999999999999 -0.13900000000000001 -0.35999999999999999 1.5708 -5.5511151231257827e-17 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/servo.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.25 0.25 1 1</diffuse>
+          <ambient>0.25 0.25 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='wrist_to_p4' type='revolute'>
+      <pose relative_to='elbow_link'>-1.268 0.0050000000000000001 0 0 0 -1.5708</pose>
+      <parent>elbow_link</parent>
+      <child>wrist_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.5700000000000001</lower>
+          <upper>1.5700000000000001</upper>
+          <effort>10</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='wrist_link'>
+      <pose relative_to='wrist_to_p4'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.26614880952380948 0.20502976190476191 0.02553571428571428 0 0 0</pose>
+        <mass>0.067199999999999996</mass>
+        <inertia>
+          <ixx>0.00054973065476190399</ixx>
+          <ixy>-0.0023543502976190469</ixy>
+          <ixz>-0.0003005553571428571</ixz>
+          <iyy>0.01191244922619018</iyy>
+          <iyz>-6.0008847760916377e-05</iyz>
+          <izz>0.01235985845238125</izz>
+        </inertia>
+      </inertial>
+      <collision name='wrist_link_collision'>
+        <pose>0.1429 -0.28770000000000001 0.029999999999999999 -1.5707036732051038 1.5707963057214724 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/wrist.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='wrist_link_fixed_joint_lump__servo5_link_collision_1'>
+        <pose>-0.14099999999999999 -0.28999999999999998 0 3.1415000000000002 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/servo.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='wrist_link_visual'>
+        <pose>0.1429 -0.28770000000000001 0.029999999999999999 -1.5707036732051038 1.5707963057214724 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/wrist.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.25 0.25 1 1</diffuse>
+          <ambient>0.25 0.25 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='wrist_link_fixed_joint_lump__servo5_link_visual_1'>
+        <pose>-0.14099999999999999 -0.28999999999999998 0 3.1415000000000002 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/servo.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.25 0.25 1 1</diffuse>
+          <ambient>0.25 0.25 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='staticgrip_to_p5' type='revolute'>
+      <pose relative_to='wrist_link'>-0.002000422419524583 -0.66000000000000003 -0.11500051057473359 -1.5707926535897929 -7.3464102067221545e-06 3.1415926535897931</pose>
+      <parent>wrist_link</parent>
+      <child>staticgrip_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.5700000000000001</lower>
+          <upper>1.5700000000000001</upper>
+          <effort>10</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='staticgrip_link'>
+      <pose relative_to='staticgrip_to_p5'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.060345238095238077 0.1477380952380952 0.046220238095238099 0 0 0</pose>
+        <mass>0.067199999999999996</mass>
+        <inertia>
+          <ixx>0.003445106130952379</ixx>
+          <ixy>0.0010871404761904761</ixy>
+          <ixz>-0.00019112630952380959</ixz>
+          <iyy>0.00057534113095208408</iyy>
+          <iyz>0.0005752346046200361</iyz>
+          <izz>0.00373118738095268</izz>
+        </inertia>
+      </inertial>
+      <collision name='staticgrip_link_collision'>
+        <pose>0.20000000000000001 0.33500000000000002 0 1.5708 0 -1.570885307179587</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/static_gripper.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='staticgrip_link_fixed_joint_lump__servo6_link_collision_1'>
+        <pose>-0.17349999999999999 -0.23000000000000001 0.029999999999999999 -1.5708889803846893 -1.5707963267948966 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/servo.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='staticgrip_link_visual'>
+        <pose>0.20000000000000001 0.33500000000000002 0 1.5708 0 -1.570885307179587</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/static_gripper.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.25 0.25 1 1</diffuse>
+          <ambient>0.25 0.25 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='staticgrip_link_fixed_joint_lump__servo6_link_visual_1'>
+        <pose>-0.17349999999999999 -0.23000000000000001 0.029999999999999999 -1.5708889803846893 -1.5707963267948966 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/servo.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.25 0.25 1 1</diffuse>
+          <ambient>0.25 0.25 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='mobilegrip_to_p6' type='revolute'>
+      <pose relative_to='staticgrip_link'>0.19400000000000001 -0.1149842495979944 0.16998471142800761 -1.5707926532494578 -7.3464102061765679e-06 -1.5707999999999871</pose>
+      <parent>staticgrip_link</parent>
+      <child>mobilegrip_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.5700000000000001</lower>
+          <upper>1.5700000000000001</upper>
+          <effort>10</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='mobilegrip_link'>
+      <pose relative_to='mobilegrip_to_p6'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>1.0000000000000001e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.2999999999999999e-05</iyy>
+          <iyz>0</iyz>
+          <izz>2.0000000000000002e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='mobilegrip_link_collision'>
+        <pose>0.1125 0.13 -0.41499999999999998 0 0 3.1415000000000002</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/mobile_gripper.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='mobilegrip_link_visual'>
+        <pose>0.1125 0.13 -0.41499999999999998 0 0 3.1415000000000002</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>model://jawarm_description/meshes/mobile_gripper.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.25 0.25 1 1</diffuse>
+          <ambient>0.25 0.25 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <frame name='p1_to_servo1' attached_to='servo1_link'>
+      <pose>0.19 0.40999999999999998 0.40000000000000002 0 0 0</pose>
+    </frame>
+    <frame name='p1_link' attached_to='p1_to_servo1'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='p2_to_servo2' attached_to='servo2_link'>
+      <pose>0.19 -0.001 0.155 3.1415926535897931 1.5707926536359933 3.1415926535897931</pose>
+    </frame>
+    <frame name='p2_link' attached_to='p2_to_servo2'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='p3_to_servo3' attached_to='servo3_link'>
+      <pose>-1 0.32000000000000001 0 0 0 0</pose>
+    </frame>
+    <frame name='p3_link' attached_to='p3_to_servo3'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='p4_to_servo4' attached_to='servo4_link'>
+      <pose>-1.268 0.0050000000000000001 0 0 0 0</pose>
+    </frame>
+    <frame name='p4_link' attached_to='p4_to_servo4'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='p5_to_servo5' attached_to='servo5_link'>
+      <pose>0 0 0 3.1415926535897931 1.5707926536359933 3.1415926535897931</pose>
+    </frame>
+    <frame name='p5_link' attached_to='p5_to_servo5'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='p6_to_servo6' attached_to='servo6_link'>
+      <pose>0 0 0 3.1415000000000002 0 0</pose>
+    </frame>
+    <frame name='p6_link' attached_to='p6_to_servo6'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='servo6_to_staticgrip' attached_to='staticgrip_link'>
+      <pose>-0.14099999999999999 -0.28000000000000003 0 0 0 0</pose>
+    </frame>
+    <frame name='servo6_link' attached_to='servo6_to_staticgrip'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='servo5_to_wrist' attached_to='wrist_link'>
+      <pose>-0.14099999999999999 -0.28000000000000003 0 0 0 0</pose>
+    </frame>
+    <frame name='servo5_link' attached_to='servo5_to_wrist'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='servo4_to_elbow' attached_to='elbow_link'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='servo4_link' attached_to='servo4_to_elbow'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='servo3_to_shoulder' attached_to='shoulder_link'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='servo3_link' attached_to='servo3_to_shoulder'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='servo2_to_baseToshoulder' attached_to='baseToshoulder_link'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='servo2_link' attached_to='servo2_to_baseToshoulder'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='servo1_base' attached_to='base_link'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='servo1_link' attached_to='servo1_base'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+  </model>
+</sdf>

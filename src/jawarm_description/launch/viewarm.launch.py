@@ -23,6 +23,6 @@ def generate_launch_description():
             executable='rviz2',
             name='rviz2',
             output='screen',
-            arguments=['-d', '/home/ktl/Jaw_roboarm/src/jawarm_description/launch/viewarm.rviz']
+            arguments=['-d', '/home/ktl/Jaw_roboarm/src/jawarm_description/rviz/viewarm.rviz']
         )
     ])
