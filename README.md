@@ -53,14 +53,14 @@ ros2 run joy joy_node
 ```bash
 colcon build --packages-select giou_ps4
 source install/setup.bash
-ros2 run giou_ps4 ps4_control.py
+ros2 run giou_ps4 ps4_control
 ```
 
 **In the third terminal window start the last node move_dynamixel:**
 ```bash
 colcon build --packages-select giou_ps4
 source install/setup.bash
-ros2 run giou_ps4 move_dynamixel.py
+ros2 run giou_ps4 dynamixel_bridge
 ```
 
 Now will see a lot of informations about the status of the servomotors and the ros2 nodes, to check if everything started in order and properly and for debug.
