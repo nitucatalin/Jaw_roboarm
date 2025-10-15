@@ -44,7 +44,7 @@
     </model>
     
     <include>
-      <uri>model://jawarm_description/jaw.sdf</uri>
+  	<uri>file:///home/gazebo-cad/Jaw_roboarm/src/jawarm_description/jaw.sdf</uri>
     </include>
     
   </world>

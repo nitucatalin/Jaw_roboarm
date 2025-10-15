@@ -18,7 +18,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/base.STL</uri>
+            <uri>meshes/base.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -27,7 +27,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/servo.STL</uri>
+            <uri>meshes/servo.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -36,7 +36,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/base.STL</uri>
+            <uri>meshes/base.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -49,7 +49,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/servo.STL</uri>
+            <uri>meshes/servo.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -95,7 +95,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/base_to_shoulder.STL</uri>
+            <uri>meshes/base_to_shoulder.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -104,7 +104,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/servo.STL</uri>
+            <uri>meshes/servo.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -113,7 +113,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/base_to_shoulder.STL</uri>
+            <uri>meshes/base_to_shoulder.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -126,7 +126,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/servo.STL</uri>
+            <uri>meshes/servo.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -172,7 +172,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/shoulder.STL</uri>
+            <uri>meshes/shoulder.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -181,7 +181,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/servo.STL</uri>
+            <uri>meshes/servo.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -190,7 +190,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/shoulder.STL</uri>
+            <uri>meshes/shoulder.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -203,7 +203,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/servo.STL</uri>
+            <uri>meshes/servo.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -249,7 +249,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/elbow.STL</uri>
+            <uri>meshes/elbow.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -258,7 +258,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/servo.STL</uri>
+            <uri>meshes/servo.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -267,7 +267,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/elbow.STL</uri>
+            <uri>meshes/elbow.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -280,7 +280,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/servo.STL</uri>
+            <uri>meshes/servo.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -326,7 +326,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/wrist.STL</uri>
+            <uri>meshes/wrist.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -335,7 +335,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/servo.STL</uri>
+            <uri>meshes/servo.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -344,7 +344,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/wrist.STL</uri>
+            <uri>meshes/wrist.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -357,7 +357,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/servo.STL</uri>
+            <uri>meshes/servo.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -403,7 +403,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/static_gripper.STL</uri>
+            <uri>meshes/static_gripper.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -412,7 +412,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/servo.STL</uri>
+            <uri>meshes/servo.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -421,7 +421,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/static_gripper.STL</uri>
+            <uri>meshes/static_gripper.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -434,7 +434,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/servo.STL</uri>
+            <uri>meshes/servo.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -480,7 +480,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/mobile_gripper.STL</uri>
+            <uri>meshes/mobile_gripper.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -489,7 +489,7 @@
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
-            <uri>model://jawarm_description/meshes/mobile_gripper.STL</uri>
+            <uri>meshes/mobile_gripper.STL</uri>
           </mesh>
         </geometry>
         <material>
