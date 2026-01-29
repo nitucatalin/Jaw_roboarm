@@ -2,6 +2,9 @@
 
 This repository contains the ROS 2 workspace packages for the **JawPixARM**, a 6-DoF robotic manipulator powered by Dynamixel XL430-w250-t servos and controll through a custom-built c++ hardware driver, integrated with ROS2 control framework, providing a robust interface between high-level trajectory planning and low-level serial communication.
 
+<p align="center">
+  <img src="images/Jaw.heic" alt="Jaw PixArm" width="400"/>
+</p>
 ---
 
 ## Quick Start Guide
