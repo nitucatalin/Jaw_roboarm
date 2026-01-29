@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="common_properties.xacro" />
+    <xacro:property name="m_scale" value="0.01 0.01 0.01" />
+
+    <link name="base_link">
+        <visual>
+            <origin xyz="-1.05 1.5 0" rpy="${pi / 2.0} 0 0"/>
+            <geometry><mesh filename="package://my_robot_description/meshes/base.STL" scale="${m_scale}"/></geometry>
+            <material name="blue" />
+        </visual>
+        <collision>
+            <origin xyz="-1.05 1.5 0" rpy="${pi / 2.0} 0 0"/>
+            <geometry><mesh filename="package://my_robot_description/meshes/base.STL" scale="${m_scale}"/></geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-1.05 1.5 0" rpy="0 0 0"/><mass value="0.02"/>
+            <inertia ixx="1.04e-04" iyy="1.04e-04" izz="2.08e-04" ixy="0.0" ixz="0.0" iyz="0.0"/>
+        </inertial>
+    </link>
+
+    <link name="servo1_link">
+        <visual>
+            <origin xyz="0.05 0.52 0.03" rpy="${pi / 2.0} 0 0"/>
+            <geometry><mesh filename="package://my_robot_description/meshes/servo.STL" scale="${m_scale}"/></geometry>
+            <material name="blue" />
+        </visual>
+        <xacro:servo_inertial />
+    </link>
+    <joint name="servo1_base" type="fixed">
+        <parent link="base_link"/><child link="servo1_link"/><origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+    <link name="p1_link"/>
+    <joint name="p1_to_servo1" type="fixed">
+        <origin xyz="0.19 0.41 0.4" rpy="0 0 0"/><parent link="servo1_link"/><child link="p1_link"/>
+    </joint>
+    <link name="baseToshoulder_link">
+        <visual>
+            <origin xyz="-0.2 -0.388 -0.2" rpy="0 0 0"/>
+            <geometry><mesh filename="package://my_robot_description/meshes/base_to_shoulder.STL" scale="${m_scale}"/></geometry>
+            <material name="blue" />
+        </visual>
+    </link>
+    <joint name="joint1" type="revolute">
+        <parent link="p1_link"/><child link="baseToshoulder_link"/>
+        <axis xyz="0 0 1"/><limit effort="10" velocity="1.0" lower="-${pi / 2.0}" upper="${pi / 2.0}"/>
+    </joint>
+
+    <link name="servo2_link">
+        <visual>
+            <origin xyz="-0.17 0.109 0.3" rpy="${pi / 2.0} ${pi / 2.0} 0"/>
+            <geometry><mesh filename="package://my_robot_description/meshes/servo.STL" scale="${m_scale}"/></geometry>
+            <material name="blue" />
+        </visual>
+        <xacro:servo_inertial />
+    </link>
+    <joint name="servo2_to_baseToshoulder" type="fixed">
+        <parent link="baseToshoulder_link"/><child link="servo2_link"/>
+    </joint>
+    <link name="p2_link"/><link name="shoulder_link">
+        <visual>
+            <origin xyz="0.11 0.157 0.03" rpy="0 ${pi / 2.0} ${pi}"/>
+            <geometry><mesh filename="package://my_robot_description/meshes/shoulder.STL" scale="${m_scale}"/></geometry>
+            <material name="blue" />
+        </visual>
+    </link>
+    <joint name="p2_to_servo2" type="fixed">
+        <origin xyz="0.19 -0.001 0.155" rpy="0 ${pi / 2.0} 0"/><parent link="servo2_link"/><child link="p2_link"/>
+    </joint>
+    <joint name="joint2" type="revolute">
+        <parent link="p2_link"/><child link="shoulder_link"/><axis xyz="0 0 1"/>
+        <limit effort="10" velocity="1.0" lower="-${pi / 2.0}" upper="${pi / 2.0}"/>
+    </joint>
+
+    <link name="servo3_link">
+        <visual>
+            <origin xyz="-1.139 0.431 -0.36" rpy="-${pi / 2.0} ${pi} ${pi}"/>
+            <geometry><mesh filename="package://my_robot_description/meshes/servo.STL" scale="${m_scale}"/></geometry>
+            <material name="blue" />
+        </visual>
+        <xacro:servo_inertial />
+    </link>
+    <joint name="servo3_to_shoulder" type="fixed">
+        <parent link="shoulder_link"/><child link="servo3_link"/>
+    </joint>
+    <link name="p3_link"/><link name="elbow_link">
+        <visual>
+            <origin xyz="0.113 0.148 0.03" rpy="0 ${pi / 2.0} ${pi}"/>
+            <geometry><mesh filename="package://my_robot_description/meshes/elbow.STL" scale="${m_scale}"/></geometry>
+            <material name="blue" />
+        </visual>
+    </link>
+    <joint name="p3_to_servo3" type="fixed">
+        <origin xyz="-1.0 0.32 0" rpy="0 0 0"/><parent link="servo3_link"/><child link="p3_link"/>
+    </joint>
+    <joint name="joint3" type="revolute">
+        <origin xyz="0 0 0" rpy="0 0 -1.5708"/><parent link="p3_link"/><child link="elbow_link"/>
+        <axis xyz="0 0 1"/><limit effort="10" velocity="1.0" lower="-${pi / 2.0}" upper="${pi / 2.0}"/>
+    </joint>
+
+    <link name="servo4_link">
+        <visual>
+            <origin xyz="-1.38 -0.139 -0.36" rpy="${pi / 2.0} 0 ${pi / 2.0}"/>
+            <geometry><mesh filename="package://my_robot_description/meshes/servo.STL" scale="${m_scale}"/></geometry>
+            <material name="blue" />
+        </visual>
+        <xacro:servo_inertial />
+    </link>
+    <joint name="servo4_to_elbow" type="fixed">
+        <parent link="elbow_link"/><child link="servo4_link"/>
+    </joint>
+    <link name="p4_link"/><link name="wrist_link">
+        <visual>
+            <origin xyz="0.1429 -0.2877 0.03" rpy="${pi / 2.0} ${pi / 2.0} ${pi}"/>
+            <geometry><mesh filename="package://my_robot_description/meshes/wrist.STL" scale="${m_scale}"/></geometry>
+            <material name="blue" />
+        </visual>
+    </link>
+    <joint name="p4_to_servo4" type="fixed">
+        <origin xyz="-1.268 0.005 0" rpy="0 0 0"/><parent link="servo4_link"/><child link="p4_link"/>
+    </joint>
+    <joint name="joint4" type="revolute">
+        <origin xyz="0 0 0" rpy="0 0 -1.5708"/><parent link="p4_link"/><child link="wrist_link"/>
+        <axis xyz="0 0 1"/><limit effort="10" velocity="1.0" lower="-${pi / 2.0}" upper="${pi / 2.0}"/>
+    </joint>
+
+    <link name="servo5_link">
+        <visual>
+            <origin xyz="0 -0.01 0" rpy="${pi} 0 0"/>
+            <geometry><mesh filename="package://my_robot_description/meshes/servo.STL" scale="${m_scale}"/></geometry>
+            <material name="blue" />
+        </visual>
+        <xacro:servo_inertial />
+    </link>
+    <joint name="servo5_to_wrist" type="fixed">
+        <origin xyz="-0.141 -0.28 0" rpy="0 0 0"/><parent link="wrist_link"/><child link="servo5_link"/>
+    </joint>
+    <link name="p5_link"/><link name="staticgrip_link">
+        <visual>
+            <origin xyz="0.2 0.335 0" rpy="${pi / 2.0} 0 4.7123"/>
+            <geometry><mesh filename="package://my_robot_description/meshes/static_gripper.STL" scale="${m_scale}"/></geometry>
+            <material name="blue" />
+        </visual>
+    </link>
+    <joint name="p5_to_servo5" type="fixed">
+        <origin xyz="0 0 0" rpy="0 ${pi / 2.0} 0"/><parent link="servo5_link"/><child link="p5_link"/>
+    </joint>
+    <joint name="joint5" type="revolute">
+        <origin xyz="0.115 -0.38 0.139" rpy="${pi / 2.0} ${pi / 2.0} 0"/><parent link="p5_link"/><child link="staticgrip_link"/>
+        <axis xyz="0 0 1"/><limit effort="10" velocity="1.0" lower="-${pi / 2.0}" upper="${pi / 2.0}"/>
+    </joint>
+
+    <link name="servo6_link">
+        <visual>
+            <origin xyz="-0.0325 0.05 0.03" rpy="${pi / 2.0} -${pi / 2.0} ${pi}"/>
+            <geometry><mesh filename="package://my_robot_description/meshes/servo.STL" scale="${m_scale}"/></geometry>
+            <material name="blue" />
+        </visual>
+        <xacro:servo_inertial />
+    </link>
+    <joint name="servo6_to_staticgrip" type="fixed">
+        <origin xyz="-0.141 -0.28 0" rpy="0 0 0"/><parent link="staticgrip_link"/><child link="servo6_link"/>
+    </joint>
+    <link name="p6_link"/><link name="mobilegrip_link">
+        <visual>
+            <origin xyz="0.1125 0.13 -0.415" rpy="0 0 ${pi}"/>
+            <geometry><mesh filename="package://my_robot_description/meshes/mobile_gripper.STL" scale="${m_scale}"/></geometry>
+            <material name="blue" />
+        </visual>
+    </link>
+    <joint name="p6_to_servo6" type="fixed">
+        <origin xyz="0 0 0" rpy="${pi} 0 0"/><parent link="servo6_link"/><child link="p6_link"/>
+    </joint>
+    <joint name="joint6" type="revolute">
+        <origin xyz="0.335 -0.165 -0.17" rpy="${pi / 2.0} 6.2831 ${pi / 2.0}"/><parent link="p6_link"/><child link="mobilegrip_link"/>
+        <axis xyz="0 0 1"/><limit effort="10" velocity="1.0" lower="-${pi / 2.0}" upper="${pi / 2.0}"/>
+    </joint>
+
+</robot>

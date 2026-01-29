@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <material name="blue">
+        <color rgba="0.2 0.2 0.8 1"/>
+    </material>
+
+    <xacro:macro name="servo_inertial">
+        <inertial>
+            <origin xyz="0.05 0.52 0.03" rpy="${pi / 2.0} 0 0"/>
+            <mass value="0.0572"/>
+            <inertia ixx="6.2e-05" iyy="7.8e-05" izz="1.0e-04" ixy="0.0" ixz="0.0" iyz="0.0"/>
+        </inertial>
+    </xacro:macro>
+
+</robot>
