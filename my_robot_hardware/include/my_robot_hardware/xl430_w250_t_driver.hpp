@@ -1,8 +1,10 @@
 #ifndef XL430_W250_t_DRIVER_HPP
 #define XL430_W250_t_DRIVER_HPP
 
+
+// For those values see the dynamixel datasheet ---> Control Table
 #define PROTOCOL_VERSION 2.0
-#define BAUDRATE 57600
+#define BAUDRATE 1000000
 
 #define ADDR_OPERATING_MODE 11
 #define ADDR_TORQUE_ENABLE 64

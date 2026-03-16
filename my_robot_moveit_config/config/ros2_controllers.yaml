@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 100
+    update_rate: 50
     arm_controller:
       type: joint_trajectory_controller/JointTrajectoryController
     gripper_controller:
@@ -17,7 +17,7 @@ arm_controller:
       - joint4
       - joint5
     command_interfaces:
-      - position
+      - velocity
     state_interfaces:
       - position
       - velocity
@@ -29,7 +29,7 @@ gripper_controller:
     joints:
       - joint6
     command_interfaces:
-      - position
+      - velocity
     state_interfaces:
       - position
       - velocity

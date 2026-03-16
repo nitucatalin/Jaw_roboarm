@@ -3,14 +3,13 @@ project(my_robot_moveit_config)
 
 find_package(ament_cmake REQUIRED)
 
-ament_package()
+# Install launch and config directories
+install(
+  DIRECTORY launch config
+  DESTINATION share/${PROJECT_NAME}
+)
 
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/launch")
-  install(
-    DIRECTORY launch
-    DESTINATION share/${PROJECT_NAME}
-    PATTERN "setup_assistant.launch" EXCLUDE)
-endif()
-
-install(DIRECTORY config DESTINATION share/${PROJECT_NAME})
+# Install the hidden setup assistant file
 install(FILES .setup_assistant DESTINATION share/${PROJECT_NAME})
+
+ament_package()

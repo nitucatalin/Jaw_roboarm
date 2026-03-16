@@ -3,9 +3,9 @@
 
     <ros2_control name="MobileBaseHardwareInterface" type="system">
         <hardware>
-          <!-- <plugin>mock_components/GenericSystem</plugin>
-            <param name="calculate_dynamics">true</param> -->
             <plugin>mobile_base_hardware/MobileBaseHardwareInterface</plugin>
+            <param name="serial_port">/dev/ttyUSB0</param>
+            <param name="baud_rate">1000000</param>
         </hardware>
         
         <joint name="joint1">

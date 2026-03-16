@@ -82,8 +82,12 @@ namespace mobile_base_hardware {
         double dt = period.seconds();
 
         for(size_t i = 0; i < servo_ids_.size(); i++) {
-            servos_vel_[i] = driver_->getVelocityRadianPerSec(servo_ids_[i]);
-            servos_pos_[i] += (servos_vel_[i] * dt);
+            try {
+                servos_vel_[i] = driver_->getVelocityRadianPerSec(servo_ids_[i]);
+                servos_pos_[i] += (servos_vel_[i] * dt);
+            } catch(...) {
+                return hardware_interface::return_type::OK;
+            }
         }
 
         return hardware_interface::return_type::OK;
@@ -96,7 +100,11 @@ namespace mobile_base_hardware {
         (void)period;
 
         for(size_t i = 0; i < servo_ids_.size(); i++) {
-            driver_->setTargetVelocityRadianPerSec(servo_ids_[i], servos_cmd_vel_[i]);
+            try {
+                driver_->setTargetVelocityRadianPerSec(servo_ids_[i], servos_cmd_vel_[i]);
+            } catch(...) {
+                return hardware_interface::return_type::OK;
+            }
         }
 
         return hardware_interface::return_type::OK;
