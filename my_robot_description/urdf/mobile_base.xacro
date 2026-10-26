@@ -27,7 +27,7 @@
             <inertia ixx="1.04e-04" iyy="1.04e-04" izz="2.08e-04" ixy="0.0" ixz="0.0" iyz="0.0"/>
         </inertial>
     </link>
-
+    
     <link name="servo1_link">
         <visual>
             <origin xyz="0.05 0.52 0.278" rpy="${pi / 2.0} 0 0"/>
@@ -94,12 +94,12 @@
     
     <link name="shoulder_link">
         <visual>
-            <origin xyz="0.11 0.157 0.1" rpy="0 ${pi / 2.0} ${pi}"/>
+            <origin xyz="0.136 0.15 0.07" rpy="0 ${pi / 2.0} ${pi}"/>
             <geometry><mesh filename="package://my_robot_description/meshes/shoulder.STL" scale="${m_scale}"/></geometry>
             <material name="blue" />
         </visual>
         <collision>
-            <origin xyz="0.11 0.157 0.1" rpy="0 ${pi / 2.0} ${pi}"/>
+            <origin xyz="0.136 0.15 0.07" rpy="0 ${pi / 2.0} ${pi}"/>
             <geometry><mesh filename="package://my_robot_description/meshes/shoulder.STL" scale="${m_scale}"/></geometry>
         </collision>
         <xacro:default_inertial mass="0.02"/>
@@ -116,12 +116,12 @@
 
     <link name="servo3_link">
         <visual>
-            <origin xyz="-1.139 0.431 -0.36" rpy="-${pi / 2.0} ${pi} ${pi}"/>
+            <origin xyz="-0.904 0.437 -0.363" rpy="-${pi / 2.0} ${pi} ${pi}"/>
             <geometry><mesh filename="package://my_robot_description/meshes/servo.STL" scale="${m_scale}"/></geometry>
             <material name="blue" />
         </visual>
         <collision>
-            <origin xyz="-1.139 0.431 -0.36" rpy="-${pi / 2.0} ${pi} ${pi}"/>
+            <origin xyz="-0.904 0.437 -0.363" rpy="-${pi / 2.0} ${pi} ${pi}"/>
             <geometry><mesh filename="package://my_robot_description/meshes/servo.STL" scale="${m_scale}"/></geometry>
         </collision>
         <xacro:servo_inertial />
@@ -149,7 +149,7 @@
     </link>
 
     <joint name="p3_to_servo3" type="fixed">
-        <origin xyz="-1.0 0.32 0" rpy="0 0 0"/><parent link="servo3_link"/><child link="p3_link"/>
+        <origin xyz="-0.768 0.325 0" rpy="0 0 0"/><parent link="servo3_link"/><child link="p3_link"/>
     </joint>
 
     <joint name="joint3" type="revolute">
@@ -159,12 +159,12 @@
 
     <link name="servo4_link">
         <visual>
-            <origin xyz="-1.38 -0.139 -0.36" rpy="${pi / 2.0} 0 ${pi / 2.0}"/>
+            <origin xyz="-1.131 -0.139 -0.36" rpy="${pi / 2.0} 0 ${pi / 2.0}"/>
             <geometry><mesh filename="package://my_robot_description/meshes/servo.STL" scale="${m_scale}"/></geometry>
             <material name="blue" />
         </visual>
         <collision>
-            <origin xyz="-1.38 -0.139 -0.36" rpy="${pi / 2.0} 0 ${pi / 2.0}"/>
+            <origin xyz="-1.131 -0.139 -0.36" rpy="${pi / 2.0} 0 ${pi / 2.0}"/>
             <geometry><mesh filename="package://my_robot_description/meshes/servo.STL" scale="${m_scale}"/></geometry>
         </collision>
         <xacro:servo_inertial />
@@ -192,7 +192,7 @@
     </link>
 
     <joint name="p4_to_servo4" type="fixed">
-        <origin xyz="-1.268 0.005 0" rpy="0 0 0"/><parent link="servo4_link"/><child link="p4_link"/>
+        <origin xyz="-1.0185 0.005 0" rpy="0 0 0"/><parent link="servo4_link"/><child link="p4_link"/>
     </joint>
 
     <joint name="joint4" type="revolute">

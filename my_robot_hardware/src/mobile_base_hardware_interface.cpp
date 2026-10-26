@@ -23,7 +23,7 @@ namespace mobile_base_hardware {
 
         return hardware_interface::CallbackReturn::SUCCESS;
     }
-
+    
     // ON CONFIGURE
     hardware_interface::CallbackReturn
     MobileBaseHardwareInterface::on_configure(const rclcpp_lifecycle::State & previous_state) {
@@ -64,7 +64,7 @@ namespace mobile_base_hardware {
         }
         return hardware_interface::CallbackReturn::SUCCESS;
     }
-
+    
     // ON DEACTIVATE
     hardware_interface::CallbackReturn
     MobileBaseHardwareInterface::on_deactivate(const rclcpp_lifecycle::State & previous_state) {
