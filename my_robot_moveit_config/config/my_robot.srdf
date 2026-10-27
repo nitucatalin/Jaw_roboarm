@@ -24,10 +24,11 @@
         <joint name="joint5" value="0"/>
     </group_state>
     <group_state name="home" group="arm">
+        <!-- joint4 is negative because the forearm is mounted flipped: same folded pose as before -->
         <joint name="joint1" value="0"/>
         <joint name="joint2" value="-1.5707"/>
         <joint name="joint3" value="-1.5707"/>
-        <joint name="joint4" value="1.5707"/>
+        <joint name="joint4" value="-1.5707"/>
         <joint name="joint5" value="0"/>
     </group_state>
     <group_state name="closed" group="gripper">
