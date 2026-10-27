@@ -25,7 +25,7 @@
 
 class XL430_W250_t_Driver {
     public:
-        XL430_W250_t_Driver(std::string device_name){
+        XL430_W250_t_Driver(std::string device_name) {
             portHandler_ = dynamixel::PortHandler::getPortHandler(device_name.c_str());
             packetHandler_ = dynamixel::PacketHandler::getPacketHandler(PROTOCOL_VERSION);
         }
