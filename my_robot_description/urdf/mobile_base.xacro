@@ -240,6 +240,14 @@
         <axis xyz="0 0 1"/><limit effort="${servo_effort}" velocity="${servo_velocity}" lower="-${pi / 2.0}" upper="${pi / 2.0}"/>
     </joint>
 
+    
+    <link name="tcp_link"/>
+
+    <joint name="staticgrip_to_tcp" type="fixed">
+        <parent link="staticgrip_link"/><child link="tcp_link"/>
+        <origin xyz="-0.0002 0.0161 0.0849" rpy="${pi} -${pi / 2.0} 0"/>
+    </joint>
+
     <link name="servo6_link">
         <visual>
             <origin xyz="-0.00325 0.005 0.003" rpy="${pi / 2.0} -${pi / 2.0} ${pi}"/>

@@ -1,24 +1,29 @@
 <launch>
-    <let name="urdf_path" 
+    <!-- ros2 launch my_robot_bringup my_robot.launch.xml                          real arm
+         ros2 launch my_robot_bringup my_robot.launch.xml use_mock_hardware:=true  simulated arm (needs the
+                                                                                   use_mock_hardware switch in my_robot.ros2_control.xacro)
+         rviz:=false skips this RViz (my_robot_moveit.launch.xml opens MoveIt's instead) -->
+    <arg name="use_mock_hardware" default="false"/>
+    <arg name="rviz" default="true"/>
+
+    <let name="urdf_path"
         value="$(find-pkg-share my_robot_description)/urdf/my_robot.urdf.xacro" />
     <let name="rviz_config_path"
         value="$(find-pkg-share my_robot_description)/rviz/urdf_config.rviz" />
 
     <node pkg="robot_state_publisher" exec="robot_state_publisher">
         <param name="robot_description"
-               value="$(command 'xacro $(var urdf_path)')" />
+               value="$(command 'xacro $(var urdf_path) use_mock_hardware:=$(var use_mock_hardware)')" />
     </node>
 
-    <node pkg="controller_manager" exec="ros2_control_node">
+    <node pkg="controller_manager" exec="ros2_control_node" output="screen">
         <param from="$(find-pkg-share my_robot_bringup)/config/my_robot_controllers.yaml"/>
     </node>
 
     <node pkg="controller_manager" exec="spawner" args="joint_state_broadcaster"/>
-    
     <node pkg="controller_manager" exec="spawner" args="arm_controller"/>
-
     <node pkg="controller_manager" exec="spawner" args="gripper_controller"/>
-    
-    <node pkg="rviz2" exec="rviz2" output="screen" 
+
+    <node pkg="rviz2" exec="rviz2" output="screen" if="$(var rviz)"
           args="-d $(var rviz_config_path)" />
 </launch>

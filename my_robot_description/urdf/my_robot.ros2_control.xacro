@@ -12,6 +12,7 @@
               <plugin>mobile_base_hardware/MobileBaseHardwareInterface</plugin>
               <param name="serial_port">/dev/ttyUSB0</param>
               <param name="baud_rate">1000000</param>
+              <!--<param name="calibrate_on_start">false</param>-->
             </hardware>
             <joint name="joint1">
                 <command_interface name="velocity"/>

@@ -3,3 +3,6 @@ arm:
   kinematics_solver_search_resolution: 0.005
   kinematics_solver_timeout: 0.05
   kinematics_solver_attempts: 3
+  # The arm group has 5 joints, so it cannot reach an arbitrary position AND orientation.
+  # Solve for the position of tcp_link only; the orientation follows from the arm.
+  position_only_ik: true

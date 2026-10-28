@@ -1,0 +1,18 @@
+<launch>
+    <!-- Real arm + MoveIt in one command. The driver runs its startup calibration
+         (home, then idle) before the controllers and MoveIt take over.
+         ros2 launch my_robot_bringup my_robot_moveit.launch.xml
+         ros2 launch my_robot_bringup my_robot_moveit.launch.xml use_mock_hardware:=true   simulated arm -->
+    <arg name="use_mock_hardware" default="false"/>
+
+    <!-- robot_state_publisher, ros2_control_node (driver + calibration), controllers; no extra RViz -->
+    <include file="$(find-pkg-share my_robot_bringup)/launch/my_robot.launch.xml">
+        <arg name="use_mock_hardware" value="$(var use_mock_hardware)"/>
+        <arg name="rviz" value="false"/>
+    </include>
+
+    <!-- MoveIt: world -> base_link transform, move_group, RViz with the MotionPlanning panel -->
+    <include file="$(find-pkg-share my_robot_moveit_config)/launch/static_virtual_joint_tfs.launch.py"/>
+    <include file="$(find-pkg-share my_robot_moveit_config)/launch/move_group.launch.py"/>
+    <include file="$(find-pkg-share my_robot_moveit_config)/launch/moveit_rviz.launch.py"/>
+</launch>

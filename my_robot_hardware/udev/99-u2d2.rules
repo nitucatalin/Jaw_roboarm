@@ -1,0 +1,8 @@
+# ROBOTIS U2D2 (FTDI FT232H, 0403:6014)
+# - latency_timer 1 ms instead of the Linux default 16 ms: each servo reply arrives up to 15 ms sooner
+# - readable/writable by everyone, no chmod after each plug-in
+# - stable name /dev/u2d2
+# Install:  sudo cp 99-u2d2.rules /etc/udev/rules.d/ && sudo udevadm control --reload-rules && sudo udevadm trigger
+# then unplug and plug the U2D2 again.
+ACTION=="add", SUBSYSTEM=="usb-serial", DRIVERS=="ftdi_sio", ATTR{latency_timer}="1"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6014", MODE="0666", SYMLINK+="u2d2"
