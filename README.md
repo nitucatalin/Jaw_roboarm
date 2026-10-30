@@ -1,4 +1,4 @@
-# Jaw PixArm
+# Jaw PixArm - ps4 controller manipulation
 
 6 DoF robotic arm project using **ROS 2 Jazzy Jalisco** and **Dynamixel hardware**. 
 This repository contains the source code, control configuration, and launch files needed to build and run the system.
