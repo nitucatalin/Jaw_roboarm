@@ -1,16 +1,10 @@
 // =============================================================================
-//  xl430_w250_t_driver.hpp
-//  Dynamixel XL430-W250-T bus driver (Protocol 2.0), used by MobileBaseHardwareInterface.
+// Copyright (c) 2023 ICI Bucharest
 //
-//  Changes from the previous version:
-//   - Absolute position is read from the encoder (Present Position), not integrated from
-//     velocity. The arm can start in any pose; the reading is right from the first cycle.
-//   - One GroupSyncRead (velocity + position of all servos) and one GroupSyncWrite (goal
-//     velocity of all servos) per control cycle, instead of 12 separate round trips.
-//     This is the main fix for the "Overrun might occur" warnings.
-//   - Return Delay Time set to 0 (factory default is 500 us per reply).
-//   - Every communication result is checked and can be reported.
+// Use of this source code is governed by an MIT-style
+// license that can be found in the LICENSE file.
 // =============================================================================
+
 #ifndef XL430_W250_T_DRIVER_HPP
 #define XL430_W250_T_DRIVER_HPP
 
