@@ -70,7 +70,7 @@ public:
     return true;
   }
 
-  // FTDI latency timer in ms (Linux default 16). Returns -1 if it cannot be read (VM, non-FTDI adapter).
+  // FTDI latency timer in ms 
   int latencyTimerMs() const
   {
     const std::string base = device_.substr(device_.find_last_of('/') + 1);

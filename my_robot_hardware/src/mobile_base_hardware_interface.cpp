@@ -1,3 +1,10 @@
+// =============================================================================
+// Copyright (c) 2023 ICI Bucharest
+//
+// Use of this source code is governed by an MIT-style
+// license that can be found in the LICENSE file.
+// =============================================================================
+
 #include "my_robot_hardware/mobile_base_hardware_interface.hpp"
 
 #include <algorithm>
@@ -33,14 +40,9 @@ MobileBaseHardwareInterface::on_init(const hardware_interface::HardwareInfo & in
   for (size_t i = 0; i < n; ++i) {
     const auto & joint = info_.joints[i];
     const auto & p = joint.parameters;
-    // Optional per-joint <param>: id (default 1..6 in URDF order)
+    // Optional per-joint <param>: id (default 1..6 in URDF order), direction (default 1)
     servo_ids_.push_back(static_cast<uint8_t>(p.count("id") ? std::stoi(p.at("id")) : static_cast<int>(i + 1)));
-    // Direction: joint3 and joint4 servos are mounted opposite to their URDF axes on this arm,
-    // so they are reversed by default. A <param name="direction"> in the xacro (1 or -1) overrides
-    // the default; it replaces it, it does not multiply it.
-    double dir = (joint.name == "joint3" || joint.name == "joint4") ? -1.0 : 1.0;
-    if (p.count("direction")) dir = std::stod(p.at("direction")) < 0 ? -1.0 : 1.0;
-    direction_.push_back(dir);
+    direction_.push_back(p.count("direction") && std::stod(p.at("direction")) < 0 ? -1.0 : 1.0);
 
     const auto lim = info_.limits.find(joint.name);
     const bool has = lim != info_.limits.end() && lim->second.has_position_limits;
@@ -180,7 +182,7 @@ MobileBaseHardwareInterface::on_activate(const rclcpp_lifecycle::State & /*previ
     servos_cmd_vel_[i] = 0.0;
     const bool out = has_limits_[i] && (servos_pos_[i] < min_pos_[i] - 0.05 || servos_pos_[i] > max_pos_[i] + 0.05);
     outside = outside || out;
-    report << "\n  " << info_.joints[i].name << " (ID " << int(servo_ids_[i])
+    report << "\n  " << info_.joints[i].name << " (ID " << int(servo_ids_[i]) << "): " << std::fixed
            << (direction_[i] < 0 ? ", reversed" : "") << "): " << std::fixed
            << std::setprecision(3) << servos_pos_[i] << " rad = " << std::setprecision(1)
            << servos_pos_[i] * 180.0 / kPi << " deg" << (out ? "   <-- OUTSIDE THE URDF LIMITS" : "");
